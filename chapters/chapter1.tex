@@ -1,0 +1,104 @@
+
+\chapter{Introduction}
+\begin{refsection}
+
+This chapter provides an overview of the study, covering the challenges of campus navigation, its objectives, and its significance. It defines the problem, outlines the goals of the research, and highlights the potential impact of the system. The scope and limitations clarify its boundaries, while the project dictionary and notes provide essential terms and supporting details.
+
+\section{Background of the Problem}
+
+With the rapid advancement of technology, navigation systems have evolved significantly to address these challenges. \gls{gps}, \gls{ar}, and \gls{ai} have played a crucial role in improving navigation by providing real-time location tracking, interactive guidance, and intelligent route optimization \cite{1}. Studies have shown that many students now rely on \gls{gps} and digital maps instead of traditional paper maps for navigation \cite{2}. However, while \gls{gps} is practical for outdoor environments, it lacks precise indoor positioning and does not provide interactive real-time assistance on university campuses \cite{3}.
+
+When navigating an unfamiliar place, many people experience anxiety or hesitation in asking for directions. This challenge is common in university settings, where new students and visitors struggle to locate buildings, offices, and other facilities. In large institutions, complex infrastructure and unclear signage can make navigation even more difficult, especially during peak periods such as exams, when new students often have trouble finding essential offices such as the registrar for enrollment, document requests, or exam-related concerns. Research indicates that first-year students commonly face challenges in navigating campuses due to limited access to buildings and unfamiliarity with the environment. For example, a study highlighted that many first-year students found it difficult to navigate their campus, leading to feelings of disorientation and stress \cite{4}.
+
+Several universities in the Philippines have recognized the importance of improving campus navigation and have developed specialized mobile applications to assist students, faculty, and visitors. For example, the \gls{tip} developed "TIP EXPRESS," an Android-based application that utilizes Google Maps to track the user's current location and plot routes within the Quezon City campus. The app employs a fuzzy logic algorithm to determine the shortest route and a channel selection algorithm to identify nearby users within a specific perimeter, in order to improve navigation efficiency and user experience \cite{5}. Similarly, \gls{dmmmsu} introduced "JUAN: Jerome's Unusual Academy Navigator App," designed to identify users' locations on the South La Union campus without requiring internet connectivity. This app features a bee animation to indicate the user's position, aligning with the university's stinging bees mascot, and was utilized during campus events to familiarize students with important buildings and staff locations \cite{6}.
+
+This issue became evident when the researchers experienced it firsthand during the first week at \gls{cspc}. The researchers were looking for the Green Building, but to their surprise, all buildings on campus were painted blue. When the researchers asked the campus guards for directions, they pointed at multiple blue buildings, making the researchers even more confused. It was only later that the researchers discovered that the building was called the Green Building, not because of its color but because of its solar panel energy source. This experience highlighted the difficulties of navigating a campus when landmarks and directions are not immediately clear. The researchers had to spend an entire week familiarizing themselves with the locations of various buildings, making it difficult to get to classes on time and reducing overall efficiency. Despite the presence of physical maps and signage, navigation on the \gls{cspc} campus remains a challenge for freshmen, visitors, and even faculty. Many struggle to locate classrooms and offices, especially in the first weeks of the semester, due to unclear building names, inconsistent signage, and difficulty finding the fastest routes between buildings. Traditional navigation methods, such as paper maps and verbal directions, can be outdated or unreliable.
+
+To address these challenges, this study explores the integration of \gls{ar}, \gls{cnn}, and \gls{lstm} networks into a spatiotemporal localization model for campus navigation as a potential solution. \gls{ar} technology can provide interactive real-time visual guides, overlaying step-by-step directions on the user's smartphone screen \cite{7}. \gls{cnn} can help recognize the features of buildings and landmarks, avoiding confusion caused by misleading names or identical building colors \cite{8}. These extracted features are then fed into an \gls{lstm}, which analyzes the sequential spatial data to model how movement influences visual perception. This spatiotemporal approach improves \gls{ar} navigation by improving localization and ensuring a more stable positioning system over time \cite{8}.
+
+Existing campus navigation systems are heavily based on \gls{gps}-based tracking, which lacks indoor precision and does not offer \gls{ai}-driven real-time guidance. Although some universities have digital maps, few have integrated \gls{ar}, \gls{cnn}, and \gls{lstm} into their navigation systems. Furthermore, most navigation applications require a stable internet connection, making them inaccessible to students who cannot afford mobile data or experience connectivity problems on campus. To address this limitation, this study aims to develop a model that can function offline, providing students, faculty, and visitors with a potential solution to navigate the campus without relying on cellular data or Wi-Fi. By integrating \gls{ai} and \gls{ar}, the proposed spatiotemporal localization for the \gls{ar} campus navigation model aims to offer a more intuitive and interactive approach to campus wayfinding. Its offline functionality seeks to make navigation assistance more accessible, especially for students with limited internet access.
+
+\section{Statement of the Problem}
+
+Navigating large campuses such as \gls{cspc} can be challenging, especially for new students and visitors. Many struggle to locate classrooms, offices, and laboratories, wasting time and leading to frustration. This issue is more evident during enrollment, exam periods for admission, and when students need to find essential offices like the registrar.
+
+Current navigation methods, such as printed maps, verbal directions, and \gls{gps} applications, have limitations: maps can be outdated, directions unclear, and \gls{gps} requires an internet connection, which not all students have. In response to these challenges, this study aims to explore the development of an offline \gls{ar} campus navigation model to support a more accessible wayfinding. Specifically, the goal is to develop a spatiotemporal landmark recognition and localization model using \gls{cnn} and \gls{lstm} to help recognize campus buildings and identify the location of the user. Lastly, it intends to assess the effectiveness of the model by analyzing its spatiotemporal localization accuracy. Through this study, it is hoped that the navigation of the campus at \gls{cspc} can be improved, making it easier for students and visitors to find their way.
+
+\section{Objectives of the Study}
+
+The objectives of this study are divided into two categories: general and specific. The general objective defines the overall goal of the study, while the specific objectives break down this goal into measurable and achievable steps. These objectives ensure a structured approach to developing an offline spatiotemporal localization model for an \gls{ar} campus navigation model for \gls{cspc}.
+
+\subsection{General Objective}
+
+This study aims to develop an offline spatiotemporal localization model for an \gls{ar} campus navigation model using \gls{cnn} and \gls{lstm} to provide students and visitors at \gls{cspc} with an interactive and real-time way finding solution.
+
+\subsection{Specific Objectives}
+
+To achieve the general objective, the study sets the following specific objectives.
+
+\begin{enumerate}
+    \item Develop a spatiotemporal landmark recognition and localization model using \gls{cnn} and \gls{lstm} networks.
+    \item Integrate the developed model for an offline \gls{ar}-based campus navigation prototype for real-time route-finding assistance. 
+    \item Evaluate the performance of the model.
+\end{enumerate}
+
+\section{Significance of the Study}
+
+The proposed study will be beneficial for the following:
+
+\textit{\textbf{\gls{cspc} Students.}} This model will help \gls{cspc} students navigate the campus efficiently, reducing their anxiety about finding specific buildings. Providing clear directions and interactive guidance helps them adjust to their environment with confidence.
+
+\textit{\textbf{Visitors.}} This would be beneficial to visitors, since this navigation tool will allow them to explore the campus without getting lost, allowing them to quickly find the places they need to go. Creates a positive experience for them, encouraging future visits to the \gls{cspc}.
+
+\textit{\textbf{Guests.}} This application will provide a user-friendly interface for guests attending events or meetings, improving their overall experience and accessibility.
+
+\textit{\textbf{Camarines Sur Polytechnic Colleges.}} This study would benefit \gls{cspc} in improving their campus navigation, which improves their reputation as a smart and welcoming school. It will also help to better manage visitors during events, making everything run more smoothly.
+
+\textit{\textbf{Researchers.}} Current researchers can build on this study to explore new ways to use \gls{ar} and \gls{ml}. The project adds valuable knowledge to the field, helping others create better technologies and solutions.
+
+\textit{\textbf{Future Researchers.}} Future researchers can use the findings of this project to study how \gls{ar} can improve navigation in schools. It opens up new ideas for research and helps inspire new projects in technology.
+
+\section{Scope and Limitation}
+
+This study aims to develop an offline spatiotemporal localization model for an \gls{ar} campus navigation model using \gls{cnn} and \gls{lstm}. The goal is to provide students and visitors to \gls{cspc} with an interactive and real-time way-finding solution that does not require internet connectivity. The project will be conducted over two whole semesters, allowing ample time for development and testing.
+
+However, there are some limitations to this study. One of them is that ARCore, although it supports many devices, does not cover all smartphones, especially older models. Additionally, the model will only be compatible with the Android operating system. Future versions may consider adding support for other platforms to meet the needs of a diverse user base.
+
+\section{Project Dictionary}
+
+To avoid misunderstandings in the terms used, the following are conceptually and operationally defined.
+
+\begin{itemize}
+
+    \item \textbf{Augmented Reality (AR).} \gls{ar} is a technology that overlays digital information onto the real world, enhancing the user's perception of their environment \cite{9}. In this study, \gls{ar} is utilized to provide interactive navigation aids that help users find their way around the campus.
+    
+    \item \textbf{Artificial Intelligence (AI).} \gls{ai} refers to the simulation of human intelligence processes by machines, particularly computer systems, enabling them to perform tasks that typically require human intelligence, such as visual perception and decision-making \cite{10}. This study employs \gls{ai} to analyze user data and improve navigation accuracy.
+    
+    \item \textbf{Convolutional Neural Networks (CNN).} \gls{cnn} are a class of deep learning algorithms particularly effective in processing visual data, such as images and videos, by mimicking the way the human brain processes visual information \cite{11}. In this study, \gls{cnn}s are employed to analyze visual inputs from the \gls{ar} system to identify and classify objects on campus.
+    
+    \item \textbf{\gls{cv}. } \gls{cv} is a field of \gls{ai} that enables computers to interpret and understand visual information from the world, allowing them to make decisions based on that data \cite{12}. This study leverages computer vision to enhance the \gls{ar} navigation experience by recognizing landmarks and providing contextual information.
+    
+    \item \textbf{Geolocation Systems.} Geolocation systems are technologies that determine the geographic location of a device, often using satellite signals or other data sources \cite{13}. In this study, geolocation systems are essential for providing real-time location tracking and navigation assistance on campus.
+    
+    \item \textbf{Global Positioning System (GPS).} The \gls{gps} is a satellite-based navigation system that allows a \gls{gps} receiver to determine its exact location (latitude, longitude, and altitude) anywhere on Earth \cite{14}. This study uses \gls{gps} to enable precise location tracking for users navigating the campus.
+    
+    \item \textbf{Long Short-Term Memory (LSTM).} \gls{lstm} is a type of \gls{rnn} architecture that is capable of learning long-term dependencies in sequential data, making it useful for tasks such as time series prediction and natural language processing \cite{15}. In this study, \gls{lstm} is used to analyze user movement patterns over time, improving the navigation model's responsiveness.
+    
+    \item \textbf{Landmark Recognition.} Landmark recognition refers to the process of identifying and classifying significant features or objects within a visual scene that aid in navigation and orientation \cite{16}. In the context of this project, landmark recognition specifically involves the navigation model's capability to identify and locate important features or points of interest on the \gls{cspc} campus, such as buildings, signage, and other notable structures.
+    
+    \item \textbf{Localization Model.} A localization model is a system designed to determine the user's position within a specific environment, employing various sensors and algorithms to provide accurate location data essential for effective navigation \cite{17}. In this project, the localization model will work with the landmark recognition system to enhance the overall way-finding experience for students and visitors at \gls{cspc}.
+    
+    \item \textbf{Machine Learning.} \gls{ml} is a subset of \gls{ai} that enables systems to learn from data and improve their performance over time without being explicitly programmed \cite{18}. This study incorporates \gls{ml} techniques to refine the navigation algorithms based on user interactions and feedback.
+    
+    \item \textbf{Navigation Model.} The Navigation Model is a framework that aids users in reaching their destinations by integrating technologies such as \gls{gps} and \gls{ar}, which provide real-time directions and interactive guidance within environments like campuses \cite{19}. In this study, the Navigation Model utilizes \gls{ml} techniques, specifically \gls{cnn} and \gls{lstm} algorithms, to enhance navigation accuracy and adapt based on user interactions and feedback.
+    
+    \item \textbf{Spatiotemporal}. Spatiotemporal refers to having both spatial and temporal qualities, relating to the interplay of space and time \cite{20}. In this study, spatiotemporal data encompasses information that varies across both locations on campus and times of day, which is crucial for adapting the navigation model to enhance user experience and effectiveness. 
+    
+\end{itemize}
+
+%=======================================================%
+%%%%% Do not delete this part %%%%%%
+\clearpage
+
+\printbibliography[heading=subbibintoc, title={\centering Notes}]
+\end{refsection}
