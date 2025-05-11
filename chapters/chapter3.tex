@@ -160,7 +160,7 @@ The development and deployment of the AR-based campus navigation system requires
 
 To manage and store sensor data collected during user experiments, the Room Database is utilized. It supports structured local data storage within the Android environment. For computer vision tasks such as preprocessing or implementing features like hyperlapse, OpenCV (v4. x or later) is integrated. Python (v3.13 or later) is a core language used for backend model training, preprocessing, and evaluation processes. Additionally, Jupyter Notebook (v6.0 or later) facilitates exploratory data analysis and the visualization of results during development. Lastly, NumPy and Pandas, both at their latest versions, are indispensable for numerical operations and tabular data processing throughout the project.
 
-\subsection{Procedure/Process}
+\subsection{Procedures}
 
 \subsubsection{Data Collection}
 
@@ -183,6 +183,13 @@ The trained model will be tested on a separate dataset to evaluate its ability t
 \subsubsection{Model Fine-tuning}
 
 The model will be fine-tuned based on testing results. Hyperparameters will be adjusted and specific layers re-trained to improve localization accuracy and robustness under various environmental conditions.
+
+\begin{figure}[H]
+    \centering
+	\includegraphics[width=0.7\textwidth]{figures/process.png} 
+	\caption[Procedures in the Study]{Flow of the Procedures Used in the Study.}
+	\label{fig:thirdFig}
+\end{figure}
 
 \subsection{Evaluation Methods}
 
@@ -233,54 +240,36 @@ This metric will provide information on how frequently the model makes a predict
 
 \section{Conceptual Framework}
 
-This section will highlight the research process to develop the prototype of a spatiotemporal localization model. It will outline how to navigate the concepts and how they relate to each other. Shown in \ref{fig:thirdFig}, are the connections between concepts and how they affect the whole thing, showing that if one of them is missing, the whole thing will not work.
+The conceptual framework for this study is designed to guide the development of a spatiotemporal localization model for an \gls{ar} navigation system using \gls{cnn} and \gls{lstm} networks at \gls{cspc}. The framework explores the relationships between sensor data, visual input, the deep learning models used for feature extraction and sequence prediction, and the output of the \gls{ar} navigation system.
+
+\subsection{Independent Variables (IVs)}
+
+The independent variables for this research are sensor data and visual data. Sensor data plays a crucial role in providing real-time measurements of the user's orientation, position, and movement within the physical environment. This data includes readings from various sensors such as the accelerometer, gyroscope, magnetometer, and rotation vector sensors, which are typically employed in mobile devices to capture the user’s motion and orientation.
+Visual data, which includes images or video frames captured by a camera, serves as another key independent variable. The images are used to aid the system’s understanding of the user's surroundings, providing contextual information to improve navigation accuracy.
+
+\subsection{Mediating Variables}
+
+The study integrates deep learning models as mediating processes between the raw input data and the final localization output. The first step involves feature extraction using \gls{cnn}. \gls{cnn}s are employed to analyze visual data and extract relevant spatial features from the environment, such as key points or landmarks, that aid in localization. These features are critical in understanding the static and dynamic aspects of the environment, allowing for more accurate mapping.
+The second key mediating process involves the use of \gls{lstm} networks, a type of \gls{rnn} designed to handle temporal data. \gls{lstm}s are particularly suited for sequence modeling, enabling the system to learn the temporal dependencies of sensor data over time. By incorporating both past and present data, \gls{lstm}s help predict the user’s position and trajectory based on their movement history and environmental context.
+
+\subsection{Dependent Variable (DV)}
+
+The dependent variable in this framework is the localization output, which refers to the predicted position or coordinates of the user within the \gls{ar} navigation system. The goal is to estimate the user’s real-time location accurately and in a spatiotemporal context, allowing the \gls{ar} system to display relevant information at the correct location in the physical world.
+
+\subsection{Moderating Variables}
+
+The environmental conditions, such as the layout of the environment (e.g., indoor vs. outdoor spaces) and lighting conditions, may act as moderating variables. These factors influence the effectiveness of both the sensor data and the \gls{cnn}-\gls{lstm} model’s performance. For instance, in low-light conditions, the accuracy of visual data may decrease, impacting the feature extraction process. Similarly, complex or cluttered environments may present challenges in accurately predicting the user’s location due to increased noise in the sensor readings.
 
 \begin{figure}[H]
     \centering
-	\includegraphics[width=0.7\textwidth]{figures/framework.png} 
-	\caption[Conceptual Framework for the \gls{ar} Navigation System]{The Conceptual Framework for the \gls{ar} Navigation System.}
-	\label{fig:thirdFig}
+	\includegraphics[width=0.85\textwidth]{figures/framework.png} 
+	\caption[Conceptural Framework]{Conceptual Framework of the Study.}
+	\label{fig:forthFig}
 \end{figure}
 
-\subsection{Data Collection}
+\subsection{Diagram of Conceptual Framework}
 
-Data collection is the foundational stage of this research, as the performance of the spatiotemporal localization model is highly dependent on the quality and consistency of the input data. The dataset that will be used in this study comprises synchronized visual and sensor data gathered from various walking paths within the \gls{cspc} campus.
-
-Visual data will be collected using a smartphone camera held steadily to simulate a natural walking motion. To manage storage and computational demands, a hyperlapse recording strategy was employed. Instead of recording at a typical frame rate (e.g., 30 frames per second), the system captured one frame for every twenty-four frames, effectively reducing redundancy while retaining temporal relevance. This strategy ensures that only meaningful changes in the environment are retained, while still preserving enough visual continuity for temporal modeling.
-
-In parallel with the visual data, sensor readings were logged using the smartphone’s internal sensors. This included accelerometer, gyroscope, magnetometer, and, where available, GPS data. These were sampled at a consistent rate (e.g., 50 Hz) and timestamped precisely to enable accurate alignment with video frames during preprocessing. The rotation vector sensor, in particular, was used to infer device orientation, which provides additional spatial context even when visual cues are limited.
-
-All data will be stored locally on the device and subsequently transferred to a desktop environment for preprocessing and model training. The raw data was also annotated with location labels derived from predetermined waypoints marked on the walking path. These annotations serve as the ground truth for model training and evaluation.
-
-By integrating both visual and sensor modalities, the collected dataset captures the spatiotemporal characteristics of user movement within the target environment, thereby enabling the model to learn patterns that correlate visual and motion data to specific locations.
-
-\subsection{Data Pre-processing}
-
-The collected images will undergo a series of pre\-processing steps to ensure they are suitable for training the spatiotemporal localization model. First, the images will be rescaled to a uniform resolution to maintain consistency in input dimensions across the dataset. In addition, denoising techniques will be used to reduce visual noise and enhance important features of images. Images will be augmented using techniques such as random rotation and brightness adjustments. Moreover, these images will be synchronized together with sensor data. These pre\-processing steps are essential to improve model accuracy and ensure robust performance in varying environmental conditions.
-
-\subsection{Model Training}
-
-The ResNet-50 model will be trained using the preprocessed image dataset to develop strong feature extraction capabilities, capturing important spatial information such as shapes, textures, and landmark details. Once trained, the high-level features extracted by ResNet-50 will be passed to the \gls{lstm} networks, which will be responsible for learning the temporal dependencies and sequential patterns across image frames. This combined \gls{cnn}-\gls{lstm} architecture will enable the system to understand both the visual context and the movement dynamics necessary for accurate spatiotemporal localization within the \gls{ar} navigation system.
-
-\subsection{Input Sampling}
-
-The camera will be configured to capture frames from the live stream while simultaneously listening to sensor inputs. These data will serve as input for the model trained in the previous stage. The frame sampling rate can be defined arbitrarily, such as capturing one frame for every 24 frames, depending on the system's requirements and performance considerations.
-
-\subsection{Input Pre-processing}
-
-Similarly with data pre-processing, input image will be rescaled. The synchronization between images and sensor data will not be computed using linear interpolation, instead it will be taken at the same time the image was captured. 
-
-\subsection{Model Inference}
-
-After pre-processing, the data will be passed through the trained model for inference. During this phase, ResNet-50 will extract spatial features from the image frames, while \gls{lstm} networks will process the temporal sequence and integrate contextual data from the sensors. The combined outputs of both models will be used to predict the location or spatiotemporal state of the user, providing accurate real-time navigation information.
-
-\subsection{Performance Evaluation}
-
-The system will be evaluated using metrics relevant to localization tasks, including accuracy, temporal consistency, latency, and robustness. Accuracy will measure how close the predicted position is to the actual one. Temporal consistency will assess how smooth and stable the predictions will be over time. The latency will evaluate how fast the model will process data in real time. Robustness will determine how well the system performs under varying lighting or motion conditions.
-
-\subsection{Location Mapping}
-
-The inference outputs will be mapped onto a predefined layout or map of the environment. This mapping will facilitate the visualization and application of the model predictions for navigation or tracking, ensuring that the user’s location is accurately represented in the system’s interface.
+The conceptual framework can be visually represented in \ref{fig:fourthFig} where the independent variables (sensor and visual data) are processed through \gls{cnn} and \gls{lstm} models, with the final outcome being the estimated localization output. Environmental conditions moderate the relationship between the inputs (sensor data and visual data) and the model’s ability to predict accurate location estimates.
 
 %=======================================================%
 %%%%% Do not delete this part %%%%%%
