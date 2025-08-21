@@ -48,17 +48,17 @@ Where x and y are the respective input and output vectors of the layers consider
 
 \subsubsection{Identity and Projection Shortcuts}
 
-ResNet-50 uses two types of shortcut connections: identity shortcuts, which directly add input to output when the dimensions match, and projection shortcuts, which use 1×1 convolutions to adjust the dimensions when needed. These shortcuts ensure smooth information flow and support deeper architectures \cite{he2015deepresiduallearningimage}.
+ResNet-50 uses two types of shortcut connections: identity shortcuts, which directly add input to output when the dimensions match, and projection shortcuts, which use 1x1 convolutions to adjust the dimensions when needed. These shortcuts ensure smooth information flow and support deeper architectures \cite{he2015deepresiduallearningimage}.
 
 \subsubsection{Bottleneck Architecture}
 
-ResNet-50 employs a bottleneck architecture, which consists of three layers: a 1×1 convolution for dimensionality reduction, a 3×3 convolution for feature extraction, and a 1×1 convolution to restore the dimensions. This design reduces computational complexity while maintaining network depth and performance \cite{he2015deepresiduallearningimage}.
+ResNet-50 employs a bottleneck architecture, which consists of three layers: a 1x1 convolution for dimensionality reduction, a 3x3 convolution for feature extraction, and a 1x1 convolution to restore the dimensions. This design reduces computational complexity while maintaining network depth and performance \cite{he2015deepresiduallearningimage}.
 
 \subsection{\gls{lstm} Networks}
 
 Based on the study of \citeauthor{10.1162/neco.1997.9.1.1} \citeyear{10.1162/neco.1997.9.1.1}, \gls{lstm} is a special kind of \gls{rnn} that helps to learn patterns in long sequences of data. Regular \gls{rnn}s have trouble remembering information because they can face issues called vanishing and exploding gradients. \gls{lstm} fixes this by using a special memory cell that can choose what to keep and what to forget.
 
-\ref{fig:secondFig} shows an \gls{lstm} cell’s three main parts, called gates: the forget gate, the input gate, and the output gate. These gates control what information to keep or ignore, allowing the network to focus on what is important. This makes \gls{lstm} suitable for tasks such as understanding languages, predicting time series, and analyzing videos \cite{10.1162/neco.1997.9.1.1}.
+\ref{fig:secondFig} shows an \gls{lstm} cell's three main parts, called gates: the forget gate, the input gate, and the output gate. These gates control what information to keep or ignore, allowing the network to focus on what is important. This makes \gls{lstm} suitable for tasks such as understanding languages, predicting time series, and analyzing videos \cite{10.1162/neco.1997.9.1.1}.
 
 \begin{figure}[H]
     \centering
@@ -244,21 +244,21 @@ The conceptual framework for this study is designed to guide the development of 
 
 \subsection{Independent Variables (IVs)}
 
-The independent variables for this research are sensor data and visual data. Sensor data plays a crucial role in providing real-time measurements of the user's orientation, position, and movement within the physical environment. This data includes readings from various sensors such as the accelerometer, gyroscope, magnetometer, and rotation vector sensors, which are typically employed in mobile devices to capture the user’s motion and orientation.
-Visual data, which includes images or video frames captured by a camera, serves as another key independent variable. The images are used to aid the system’s understanding of the user's surroundings, providing contextual information to improve navigation accuracy.
+The independent variables for this research are sensor data and visual data. Sensor data plays a crucial role in providing real-time measurements of the user's orientation, position, and movement within the physical environment. This data includes readings from various sensors such as the accelerometer, gyroscope, magnetometer, and rotation vector sensors, which are typically employed in mobile devices to capture the user's motion and orientation.
+Visual data, which includes images or video frames captured by a camera, serves as another key independent variable. The images are used to aid the system's understanding of the user's surroundings, providing contextual information to improve navigation accuracy.
 
 \subsection{Mediating Variables}
 
 The study integrates deep learning models as mediating processes between the raw input data and the final localization output. The first step involves feature extraction using \gls{cnn}. \gls{cnn}s are employed to analyze visual data and extract relevant spatial features from the environment, such as key points or landmarks, that aid in localization. These features are critical in understanding the static and dynamic aspects of the environment, allowing for more accurate mapping.
-The second key mediating process involves the use of \gls{lstm} networks, a type of \gls{rnn} designed to handle temporal data. \gls{lstm}s are particularly suited for sequence modeling, enabling the system to learn the temporal dependencies of sensor data over time. By incorporating both past and present data, \gls{lstm}s help predict the user’s position and trajectory based on their movement history and environmental context.
+The second key mediating process involves the use of \gls{lstm} networks, a type of \gls{rnn} designed to handle temporal data. \gls{lstm}s are particularly suited for sequence modeling, enabling the system to learn the temporal dependencies of sensor data over time. By incorporating both past and present data, \gls{lstm}s help predict the user's position and trajectory based on their movement history and environmental context.
 
 \subsection{Dependent Variable (DV)}
 
-The dependent variable in this framework is the localization output, which refers to the predicted position or coordinates of the user within the \gls{ar} navigation system. The goal is to estimate the user’s real-time location accurately and in a spatiotemporal context, allowing the \gls{ar} system to display relevant information at the correct location in the physical world.
+The dependent variable in this framework is the localization output, which refers to the predicted position or coordinates of the user within the \gls{ar} navigation system. The goal is to estimate the user's real-time location accurately and in a spatiotemporal context, allowing the \gls{ar} system to display relevant information at the correct location in the physical world.
 
 \subsection{Moderating Variables}
 
-The environmental conditions, such as the layout of the environment (e.g., indoor vs. outdoor spaces) and lighting conditions, may act as moderating variables. These factors influence the effectiveness of both the sensor data and the \gls{cnn}-\gls{lstm} model’s performance. For instance, in low-light conditions, the accuracy of visual data may decrease, impacting the feature extraction process. Similarly, complex or cluttered environments may present challenges in accurately predicting the user’s location due to increased noise in the sensor readings.
+The environmental conditions, such as the layout of the environment (e.g., indoor vs. outdoor spaces) and lighting conditions, may act as moderating variables. These factors influence the effectiveness of both the sensor data and the \gls{cnn}-\gls{lstm} model's performance. For instance, in low-light conditions, the accuracy of visual data may decrease, impacting the feature extraction process. Similarly, complex or cluttered environments may present challenges in accurately predicting the user's location due to increased noise in the sensor readings.
 
 \begin{figure}[H]
     \centering
@@ -269,7 +269,7 @@ The environmental conditions, such as the layout of the environment (e.g., indoo
 
 \subsection{Diagram of Conceptual Framework}
 
-The conceptual framework can be visually represented in \ref{fig:fourthFig} where the independent variables (sensor and visual data) are processed through \gls{cnn} and \gls{lstm} models, with the final outcome being the estimated localization output. Environmental conditions moderate the relationship between the inputs (sensor data and visual data) and the model’s ability to predict accurate location estimates.
+The conceptual framework can be visually represented in \ref{fig:fourthFig} where the independent variables (sensor and visual data) are processed through \gls{cnn} and \gls{lstm} models, with the final outcome being the estimated localization output. Environmental conditions moderate the relationship between the inputs (sensor data and visual data) and the model's ability to predict accurate location estimates.
 
 %=======================================================%
 %%%%% Do not delete this part %%%%%%
